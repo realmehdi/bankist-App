@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بانکدار</title>
+    <link rel="shortcut icon" type="image/png" href="./assets/img/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- TOP NAVIGATION -->
+    <nav class="navigation">
+      <p class="welcome">برای شروع وارد حساب خود شوید</p>
+      <img src="./assets/img/logo.png" alt="logo" class="logo" />
+      <form action="" class="login">
+        <input
+          type="text"
+          placeholder="کاربر"
+          class="login__input login__input--user"
+        />
+        <input
+          type="text"
+          placeholder="رمز"
+          class="login__input login__input--pin"
+          maxlength="4"
+        />
+        <button class="login__btn">&rarr;</button>
+      </form>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="app">
+      <!-- BALANCE  -->
+      <div class="balance">
+        <div>
+          <p class="balance__label">موجودی فعلی</p>
+          <p class="balance__date">
+            در تاریخ <span class="date">05/03/2037</span>
+          </p>
+        </div>
+        <p class="balance__value">0000 IIR</p>
+      </div>
+
+      <!-- MOVEMENT -->
+      <div class="movements">
+        <div class="movement__row">
+          <div class="movement__type movement__type--deposit">واریز 2</div>
+          <div class="movement__date">24/01/2037</div>
+          <div class="movement__value">40,000,000 IIR</div>
+        </div>
+        <div class="movement__row">
+          <div class="movement__type movement__type--withdrawal">2 برداشت</div>
+          <div class="movement__date">24/01/2037</div>
+          <div class="movement__value">-300,000 IIR</div>
+        </div>
+      </div>
+
+      <!-- SUMMARY  -->
+      <div class="summary">
+        <p class="summary__label">ج واریزها</p>
+        <p class="summary__value summary__value--in">0000 IIR</p>
+        <p class="summary__label">ج برداشت ها</p>
+        <p class="summary__value summary__value--out">0000 IIR</p>
+        <p class="summary__label">سود</p>
+        <p class="summary__value summary__value--interest">0000 IIR</p>
+        <button class="btn--sort">&downarrow;مرتب سازی</button>
+      </div>
+
+      <!-- TRANSFERS -->
+      <div class="operation operation--transfer">
+        <h2>انتقال وجه</h2>
+        <form class="form form--transfer">
+          <input type="text" class="form__input form__input--to" />
+          <input type="number" class="form__input form__input--amount" />
+          <button class="form__btn form__btn--transfer">&rarr;</button>
+          <label class="form__label">انتقال به</label>
+          <label class="form__label">مبلغ</label>
+        </form>
+      </div>
+
+      <!-- LOAN  -->
+      <div class="operation operation--loan">
+        <h2>درخواست وام</h2>
+        <form class="form form--loan">
+          <input type="number" class="form__input form__input--loan--amount" />
+          <button class="form__btn form__btn--loan">&rarr;</button>
+          <label class="form__label form__label--loan">مبلغ درخواستی</label>
+        </form>
+      </div>
+
+      <!-- CLOSE  -->
+      <div class="operation operation--close">
+        <h2>خروج از حساب</h2>
+        <form class="form form--close">
+          <input type="text" class="form__input form__input--user" />
+          <input
+            type="password"
+            maxlength="6"
+            class="form__input form__input--pin"
+          />
+          <button class="form__btn form__btn--close">&rarr;</button>
+          <label class="form__label">نام کاربر</label>
+          <label class="form__label">رمز</label>
+        </form>
+      </div>
+
+      <!-- LOGOUT TIMER -->
+      <p class="logout--timer">
+        زمان باقیمانده تا خارج شدن خودکار <span class="timer">05:00</span>
+      </p>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

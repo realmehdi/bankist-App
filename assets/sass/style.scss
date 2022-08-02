@@ -1,0 +1,331 @@
+// base
+$font-path: "../fonts";
+$primary-font: vazirMedium;
+$secondary-font: vazirRegular;
+$digits-font: "Poppins", sans-serif;
+$root-font-size: 62.5%; // 1rem = 10px
+
+@font-face {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  src: url("#{$font-path}/Vazir-Medium.woff") format("woff"),
+    url("#{$font-path}/Vazir-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $secondary-font;
+  font-style: normal;
+  font-weight: normal;
+  src: url("#{$font-path}/Vazir-Regular.woff") format("woff"),
+    url("#{$font-path}/Vazir-Regular.woff2") format("woff2");
+}
+
+html {
+  font-size: $root-font-size;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $primary-font;
+  color: #444;
+  background-color: #f3f3f3;
+  height: 100vh;
+  padding: 2rem;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// navbar
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+
+  .welcome {
+    font-size: 1.9rem;
+  }
+
+  .logo {
+    height: 5.25rem;
+  }
+
+  .login {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .login__input {
+      border: 1px solid #fff;
+      padding: 0.5rem 2rem;
+      margin-right: 1rem;
+      width: 12rem;
+      border-radius: 5rem;
+      font-size: 1.6rem;
+      text-align: center;
+      color: inherit;
+      font-family: inherit;
+      transition: all 0.3s;
+
+      &:focus {
+        outline: none;
+        border: 1px solid #ccc;
+      }
+      &::placeholder {
+        color: #bbb;
+      }
+    }
+
+    .login__btn {
+      font-size: 2.2rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: inherit;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        color: #777;
+      }
+    }
+  }
+}
+
+// main
+// balance
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  grid-template-rows: auto 15rem 15rem 15rem auto;
+  gap: 2rem;
+  opacity: 0;
+  transition: all 1s;
+
+  .balance {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    grid-column: 1/3;
+    margin-bottom: 2rem;
+
+    .balance__label {
+      font-size: 2.2rem;
+      margin-bottom: -0.2rem;
+      color: inherit;
+    }
+    .balance__date {
+      font-size: 1.5rem;
+      color: #888;
+      span {
+        font-family: $secondary-font;
+      }
+    }
+
+    .balance__value {
+      font-family: $secondary-font;
+      font-size: 4.5rem;
+      font-weight: 400;
+    }
+  }
+
+  // movement
+  .movements {
+    background-color: #fff;
+    grid-column: 2/3;
+    grid-row: 2 / span 3;
+    border-radius: 1rem;
+    overflow-y: scroll;
+    direction: ltr;
+    &::-webkit-scrollbar {
+      width: 0.7rem;
+      background-color: #fff;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background: #bbb;
+    }
+
+    .movement__row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 2.5rem 4rem;
+      border-bottom: 1px solid #eee;
+
+      .movement__type {
+        font-size: 1.1rem;
+        padding: 0.1rem 1rem;
+        border-radius: 5rem;
+        margin-right: 2rem;
+        color: #fff;
+      }
+      .movement__type--deposit {
+        background-image: linear-gradient(to top left, #39b385, #9be15d);
+      }
+      .movement__type--withdrawal {
+        background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+      }
+
+      .movement__date {
+        font-size: 1.1rem;
+        color: #666;
+        font-family: $secondary-font;
+        direction: rtl;
+      }
+      .movement__value {
+        font-size: 1.7rem;
+        margin-left: auto;
+        font-family: $secondary-font;
+      }
+    }
+  }
+
+  // summary
+  .summary {
+    grid-column: 2 / span 1;
+    grid-row: 5/6;
+    display: flex;
+    align-items: baseline;
+    margin-top: 1rem;
+    direction: ltr;
+
+    .summary__label {
+      font-size: 1.2rem;
+      color: inherit;
+      margin-right: 0.6rem;
+    }
+    .summary__value {
+      font-family: $secondary-font;
+      font-size: 2.2rem;
+      margin-right: 2rem;
+    }
+    .summary__value--in,
+    .summary__value--interest {
+      color: #66c873;
+    }
+    .summary__value--out {
+      color: #f5465d;
+    }
+
+    .btn--sort {
+      font-family: inherit;
+      margin-left: auto;
+      font-size: 1.3rem;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        color: #777;
+      }
+    }
+  }
+
+  // operation
+  .operation {
+    border-radius: 1rem;
+    padding: 3rem 4rem;
+    color: #333;
+
+    h2 {
+      font-family: $secondary-font;
+      color: #333;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 2.5fr 2.5fr 1fr;
+      grid-template-rows: auto auto;
+      direction: ltr;
+      gap: 0.4rem 1rem;
+
+      .form__input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.4);
+        font-family: $digits-font;
+        font-size: 1.5rem;
+        text-align: center;
+        color: #333;
+        padding: 0.3rem 1rem;
+        border-radius: 0.7rem;
+        transition: all 0.3s;
+        &:focus {
+          background-color: rgba(255, 255, 255, 0.6);
+        }
+      }
+
+      .form__btn {
+        border: none;
+        border-radius: 0.7rem;
+        font-size: 1.8rem;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:focus {
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      .form__label {
+        text-align: center;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .operation--transfer {
+    background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  }
+  .operation--loan {
+    background-image: linear-gradient(to top left, #39b385, #9be15d);
+
+    .form--loan {
+      grid-template-columns: 2.5fr 1fr 2.5fr;
+
+      .form__label--loan {
+        grid-row: 2;
+      }
+    }
+  }
+  .operation--close {
+    background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+  }
+  .logout--timer {
+    padding: 0 0.3rem;
+    margin-top: 1.9rem;
+    font-size: 1.25rem;
+
+    .timer {
+      font-family: $digits-font;
+      margin-right: 0.5rem;
+      font-weight: 600;
+    }
+  }
+}
