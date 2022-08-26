@@ -5,7 +5,7 @@
 // Data
 const account1 = {
   owner: "Mehdi Latifi",
-  persianName: "مهدی لظیفی",
+  persianName: "مهدی لطیفی",
   movements: [
     20000000, 450000, -4000000, 3000000, -650000, -1300000, 700000, 1700000,
   ],
