@@ -1,5 +1,10 @@
 "use strict";
 
+// this alert is just for guidance and how to use
+alert(
+  "How to Use \n Try with : \n ml :رمز : 1111  کاربر \n da :رمز : 2222  کاربر"
+);
+
 // BANKIST APP
 
 // Data
